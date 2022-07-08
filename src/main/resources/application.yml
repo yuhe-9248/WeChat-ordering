@@ -1,0 +1,66 @@
+server:
+  servlet:
+    context-path: /sell #项目名
+  port: 8081
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101:3306/sell?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+    open-in-view: true
+  jackson:
+    default-property-inclusion: non_null
+  freemarker:
+    suffix: .ftl
+  redis:
+    host: 192.168.56.101
+    port: 6379
+
+
+wechat:
+  myAppId: wxc8f136928e57296b
+  myAppSecret: a5e99fc1b703ced12ef4c65e9f6515e4
+  openAppId: wxa459c1bfdc6e0f0f
+  openAppSecret: c1ba19aa3d53d374871cfa998e595799
+  templteId:
+    orderStatus: DmnMVCH6IDQaRR4wq9psDLkhQnPgrMZ38AmDOuhDF70  #订单状态变化模板id
+
+
+#  openAppId: wx6ad144e54af67d87
+#  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+#  mchId: 1409146202
+#  mchKey: c976503d34ca432c601361f969fd8d85
+#  keyPath: /var/weixin_cert/h5.p12  #微信支付的证书储存地址
+#  notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+
+projecturl:
+  wechatMpAuthorize: http://yuhe.nat300.top
+  wechatOpenAuthorized: http://yuhe.nat300.top/
+  sell: http://yuhe.nat300.top
+
+#logging:
+#  pattern:
+#    console: "%d - %msg %n" #日志格式
+#  level:
+#    root: info
+#    com:
+#      imooc:
+#        LoggerTest: debug
+#  file:
+#    name: aaa.log
+#    path: ./
+logging:
+  level:
+    com:
+      imooc:
+        dataobject:
+          mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
